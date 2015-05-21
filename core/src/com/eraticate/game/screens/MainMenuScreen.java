@@ -2,6 +2,7 @@ package com.eraticate.game.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -35,12 +36,17 @@ public class MainMenuScreen implements Screen
 
     private Texture bgImg = new Texture(Gdx.files.internal("textures/mainmenu/bg.jpg"));
 
+    Music mainTheme;
+
 
     public MainMenuScreen(Eraticate eraticate)
     {
         this.game = eraticate;
         this.batch = eraticate.getBatch();
         this.stage = new Stage(new StretchViewport(800, 480), eraticate.getBatch());
+        this.mainTheme=Gdx.audio.newMusic(Gdx.files.internal("audio/music/mainmenu.wav"));
+        mainTheme.setLooping(true);
+        mainTheme.play();
     }
 
     @Override
