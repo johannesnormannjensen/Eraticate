@@ -28,7 +28,7 @@ public class MainMenuScreen implements Screen
     private Skin skin = new Skin(Gdx.files.internal("textures/mainmenu/menuSkin.json"),
             new TextureAtlas(Gdx.files.internal("textures/mainmenu/menuSkin.pack")));
 
-    private Label title = new Label("game", skin);
+    private Label title = new Label("Eraticate", skin);
 
     private TextButton buttonPlay = new TextButton("Play", skin),
             buttonQuit = new TextButton("Quit", skin);
