@@ -5,7 +5,10 @@
     "com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle": { 
         "default": { "up": "buttonup" , "down": "buttondown", "font": font, "pressedOffsetY": -4 }
     },
-         "com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle": {
-             "default": { "font": font}
-         }
+    "com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle": {
+              "default": { "up": "musicOn" , "checked": "musicOff", "pressedOffsetY": -4 }
+          },
+    "com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle": {
+        "default": { "font": font}
+     }
 }

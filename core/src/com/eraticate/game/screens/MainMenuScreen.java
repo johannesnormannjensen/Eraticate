@@ -9,11 +9,14 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.eraticate.game.Eraticate;
 
@@ -24,17 +27,17 @@ public class MainMenuScreen implements Screen
     private Batch batch;
 
     private Stage stage;
-    private Table table = new Table();
-
     private Skin skin = new Skin(Gdx.files.internal("textures/mainmenu/menuSkin.json"),
             new TextureAtlas(Gdx.files.internal("textures/mainmenu/menuSkin.pack")));
+
+    private Table table = new Table(skin);
 
     private Label title = new Label("Eraticate", skin);
 
     private TextButton buttonPlay = new TextButton("Play", skin),
             buttonQuit = new TextButton("Quit", skin);
 
-    private Texture bgImg = new Texture(Gdx.files.internal("textures/mainmenu/bg.jpg"));
+    private ImageButton buttonMusic = new ImageButton(skin);
 
     Music mainTheme;
 
@@ -44,9 +47,10 @@ public class MainMenuScreen implements Screen
         this.game = eraticate;
         this.batch = eraticate.getBatch();
         this.stage = new Stage(new StretchViewport(800, 480), eraticate.getBatch());
-        this.mainTheme=Gdx.audio.newMusic(Gdx.files.internal("audio/music/mainmenu.wav"));
+        this.mainTheme = Gdx.audio.newMusic(Gdx.files.internal("audio/music/mainmenu.wav"));
         mainTheme.setLooping(true);
         mainTheme.play();
+
     }
 
     @Override
@@ -56,7 +60,6 @@ public class MainMenuScreen implements Screen
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         batch.begin();
-        batch.draw(bgImg, 0, 0, 800, 480);
         batch.end();
 
         stage.act();
@@ -89,8 +92,19 @@ public class MainMenuScreen implements Screen
             }
         });
 
+        buttonMusic.addListener(new ClickListener()
+        {
+            @Override
+            public void clicked(InputEvent event, float x, float y)
+            {
+                mainTheme.setVolume(buttonMusic.isChecked() ? 0 : 1);
+            }
+        });
+
         //The elements are displayed in the order you add them.
         //The first appear on top, the last at the bottom.
+        table.setBackground("bg");
+        table.add(buttonMusic).expand().right().top().row();
         table.add(title).padBottom(40).row();
         table.add(buttonPlay).size(150, 60).padBottom(20).row();
         table.add(buttonQuit).size(150, 60).padBottom(20).row();

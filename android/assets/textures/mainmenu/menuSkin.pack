@@ -3,9 +3,16 @@ menuSkin.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-buttonup
+bg
   rotate: false
   xy: 1, 1
+  size: 798, 478
+  orig: 798, 478
+  offset: 0, 0
+  index: -1
+buttonup
+  rotate: false
+  xy: 801, 430
   size: 190, 49
   split: 3, 4, 3, 4
   orig: 190, 49
@@ -13,9 +20,37 @@ buttonup
   index: -1
 buttondown
   rotate: false
-  xy: 193, 5
+  xy: 801, 383
   size: 190, 45
   split: 4, 4, 4, 4
   orig: 190, 45
+  offset: 0, 0
+  index: -1
+audioOff
+  rotate: false
+  xy: 801, 283
+  size: 98, 98
+  orig: 98, 98
+  offset: 0, 0
+  index: -1
+audioOn
+  rotate: false
+  xy: 801, 183
+  size: 98, 98
+  orig: 98, 98
+  offset: 0, 0
+  index: -1
+musicOff
+  rotate: false
+  xy: 801, 83
+  size: 98, 98
+  orig: 98, 98
+  offset: 0, 0
+  index: -1
+musicOn
+  rotate: false
+  xy: 901, 283
+  size: 98, 98
+  orig: 98, 98
   offset: 0, 0
   index: -1
