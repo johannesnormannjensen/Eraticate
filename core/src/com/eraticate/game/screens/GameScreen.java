@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 import com.eraticate.game.Eraticate;
 import com.eraticate.game.Map;
 
@@ -18,18 +20,23 @@ public class GameScreen extends RatScreen implements InputProcessor
     private Batch batch;
     private Map map;
     OrthographicCamera camera;
+    Viewport viewport;
+    float aspectRatio;
     public GameScreen(Eraticate game)
     {
         this.game = game;
         batch = game.getBatch();
-        camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        camera.translate(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2, 0);
+        camera = new OrthographicCamera();
+        aspectRatio = (float) Gdx.graphics.getHeight() / (float) Gdx.graphics.getWidth();
+        viewport = new FitViewport(1024, 1024 * aspectRatio, camera);
+        viewport.apply();
+        camera.translate(camera.viewportWidth, camera.viewportHeight / 2, 0);
         Gdx.input.setInputProcessor(this);
     }
     @Override
     public void show()
     {
-        map = new Map(5, 5);
+        map = new Map(15, 15);
         map.Default();
     }
 
@@ -79,7 +86,7 @@ public class GameScreen extends RatScreen implements InputProcessor
     public boolean keyDown(int keycode)
     {
 
-        camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        if (keycode == Keys.Q) viewport.setScreenWidth();
         return false;
     }
     @Override
