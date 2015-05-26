@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.eraticate.game.mapobjects.GrassField;
+import com.eraticate.game.mapobjects.Rat;
 import com.eraticate.game.mapobjects.RoadField;
 
 import java.util.ArrayList;
@@ -22,6 +23,8 @@ public class Map
     {
         return fields;
     }
+
+    ArrayList<Rat> rats = new ArrayList<>();
 
 
     public int getFieldSize()
@@ -44,17 +47,21 @@ public class Map
         {
             for (int j = 0; j < fields[i].length; j++)
             {
-
                 fields[i][j].draw(batch, i * fieldSize, j * fieldSize, fieldSize, fieldSize);
-
             }
+        }
+        for (int i = 0; i < rats.size(); i++)
+        {
+
         }
     }
     public void Default()
     {
         Texture grassTexture = new Texture(Gdx.files.internal("textures/map/grass/grass.png"));
         Texture roadTexture = new Texture(Gdx.files.internal("textures/map/road.png"));
+        Texture ratTexture = new Texture(Gdx.files.internal("textures/map/road.png"));
 
+        rats.add(new Rat(ratTexture, 1, 1));
 
         for (int i = 0; i < fields.length; i++)
         {
