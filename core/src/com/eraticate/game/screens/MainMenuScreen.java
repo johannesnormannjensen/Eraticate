@@ -1,27 +1,23 @@
 package com.eraticate.game.screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.eraticate.game.Eraticate;
 
 
-public class MainMenuScreen implements Screen
+public class MainMenuScreen extends RatScreen
 {
     private final Eraticate game;
     private Batch batch;
@@ -54,8 +50,14 @@ public class MainMenuScreen implements Screen
     }
 
     @Override
-    public void render(float delta)
+    public void update(float delta)
     {
+
+    }
+    @Override
+    public void renderScreen(float delta)
+    {
+
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
@@ -64,8 +66,8 @@ public class MainMenuScreen implements Screen
 
         stage.act();
         stage.draw();
-
     }
+
 
     @Override
     public void resize(int width, int height)
@@ -137,5 +139,6 @@ public class MainMenuScreen implements Screen
         stage.dispose();
         skin.dispose();
     }
+
 
 }

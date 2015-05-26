@@ -5,7 +5,16 @@ import com.badlogic.gdx.Screen;
 /**
  * Created by Ferenc on 5/18/2015.
  */
-public interface RatScreen extends Screen
+public abstract class RatScreen implements Screen
 {
-       public void update(float delta);
+
+    public abstract void update(float delta);
+    public abstract void renderScreen(float delta);
+
+    @Override
+    public final void render(float delta)
+    {
+        update(delta);
+        renderScreen(delta);
+    }
 }

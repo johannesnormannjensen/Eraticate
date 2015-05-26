@@ -19,7 +19,26 @@ public class Map
     }
 
     ArrayList<Drawable>[][] fields;
+    private int fieldSize = 100;
+    private int translateX = 0;
+    private int translateY = 0;
 
+    public int getTranslateX()
+    {
+        return translateX;
+    }
+    public void setTranslateX(int translateX)
+    {
+        this.translateX = translateX;
+    }
+    public int getTranslateY()
+    {
+        return translateY;
+    }
+    public void setTranslateY(int translateY)
+    {
+        this.translateY = translateY;
+    }
     public Map(int width, int height)
     {
         fields = new ArrayList[height][width];
@@ -33,7 +52,7 @@ public class Map
             {
                 for (int k = 0; k < fields[i][j].size(); k++)
                 {
-                    fields[i][j].get(k).draw(batch, i * 100, j * 100, 100, 100);
+                    fields[i][j].get(k).draw(batch, translateX + i * fieldSize, translateY + j * fieldSize, fieldSize, fieldSize);
                 }
             }
         }
