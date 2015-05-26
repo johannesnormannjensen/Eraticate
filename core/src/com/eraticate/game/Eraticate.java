@@ -4,6 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
+import com.eraticate.game.screens.GameScreen;
 import com.eraticate.game.screens.MainMenuScreen;
 
 public class Eraticate extends Game
@@ -20,7 +21,7 @@ public class Eraticate extends Game
     public void create()
     {
         batch = new SpriteBatch();
-        this.setScreen(new MainMenuScreen(this));
+        this.setScreen(new GameScreen(this));
     }
 
 

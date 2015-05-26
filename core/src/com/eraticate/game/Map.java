@@ -1,6 +1,8 @@
 package com.eraticate.game;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.eraticate.game.mapobjects.GrassField;
@@ -13,35 +15,27 @@ import java.util.ArrayList;
  */
 public class Map
 {
-    public ArrayList<Drawable>[][] getFields()
+    private int fieldSize = 100;
+
+    Drawable[][] fields;
+    public Drawable[][] getFields()
     {
         return fields;
     }
 
-    ArrayList<Drawable>[][] fields;
-    private int fieldSize = 100;
-    private int translateX = 0;
-    private int translateY = 0;
 
-    public int getTranslateX()
+    public int getFieldSize()
     {
-        return translateX;
+        return fieldSize;
     }
-    public void setTranslateX(int translateX)
+    public void setFieldSize(int fieldSize)
     {
-        this.translateX = translateX;
+        this.fieldSize = fieldSize;
     }
-    public int getTranslateY()
-    {
-        return translateY;
-    }
-    public void setTranslateY(int translateY)
-    {
-        this.translateY = translateY;
-    }
+
     public Map(int width, int height)
     {
-        fields = new ArrayList[height][width];
+        fields = new Drawable[height][width];
     }
 
     public void Draw(Batch batch, OrthographicCamera camera)
@@ -50,21 +44,23 @@ public class Map
         {
             for (int j = 0; j < fields[i].length; j++)
             {
-                for (int k = 0; k < fields[i][j].size(); k++)
-                {
-                    fields[i][j].get(k).draw(batch, translateX + i * fieldSize, translateY + j * fieldSize, fieldSize, fieldSize);
-                }
+
+                fields[i][j].draw(batch, i * fieldSize, j * fieldSize, fieldSize, fieldSize);
+
             }
         }
     }
     public void Default()
     {
+        Texture grassTexture = new Texture(Gdx.files.internal("textures/map/grass/grass.png"));
+        Texture roadTexture = new Texture(Gdx.files.internal("textures/map/road.png"));
+
+
         for (int i = 0; i < fields.length; i++)
         {
             for (int j = 0; j < fields[i].length; j++)
             {
-                fields[i][j] = new ArrayList<Drawable>();
-                fields[i][j].add(new GrassField());
+                fields[i][j] = new GrassField(grassTexture);
             }
         }
 
@@ -72,17 +68,14 @@ public class Map
         {
             for (int j = 1; j < fields[i].length - 1; j++)
             {
-                fields[i][j].remove(0);
-                fields[i][j].add(new RoadField());
+                fields[i][j] = new RoadField(roadTexture);
             }
         }
         for (int i = 2; i < fields.length - 2; i++)
         {
             for (int j = 2; j < fields[i].length - 2; j++)
             {
-
-                fields[i][j].remove(0);
-                fields[i][j].add(new GrassField());
+                fields[i][j] = new GrassField(grassTexture);
             }
         }
     }

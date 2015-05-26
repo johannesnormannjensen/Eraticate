@@ -11,7 +11,11 @@ import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 public class GrassField implements Drawable
 {
 
-    Texture texture = new Texture(Gdx.files.internal("textures/map/grass.png"));
+    public GrassField(Texture texture)
+    {
+        this.texture = texture;
+    }
+    Texture texture;
     @Override
     public void draw(Batch batch, float x, float y, float width, float height)
     {
