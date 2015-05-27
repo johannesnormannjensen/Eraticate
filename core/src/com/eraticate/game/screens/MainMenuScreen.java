@@ -33,7 +33,7 @@ public class MainMenuScreen extends RatScreen
     private TextButton buttonPlay = new TextButton("Play", skin),
             buttonQuit = new TextButton("Quit", skin);
 
-    private ImageButton buttonMusic = new ImageButton(skin);
+    private ImageButton buttonMusic = new ImageButton(skin, "music");
 
     Music mainTheme;
 

@@ -19,12 +19,13 @@ public class Map
     private int fieldSize = 100;
 
     Drawable[][] fields;
+
     public Drawable[][] getFields()
     {
         return fields;
     }
 
-    ArrayList<Rat> rats = new ArrayList<>();
+    ArrayList<Rat> rats = new ArrayList();
 
 
     public int getFieldSize()

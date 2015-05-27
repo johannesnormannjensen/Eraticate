@@ -1,0 +1,26 @@
+{
+    "com.badlogic.gdx.graphics.g2d.BitmapFont": {
+        "font": { "file": "fonts/buttonFont.fnt" },
+    },
+    "com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle": {
+              "bomb": { "up": "bomb" , "pressedOffsetY": -4 }
+          },
+    "com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle": {
+              "spikes": { "up": "spikes" , "pressedOffsetY": -4 }
+          },
+    "com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle": {
+              "exit": { "up": "exit" , "pressedOffsetY": -4 }
+          },
+    "com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle": {
+              "return": { "up": "return" , "pressedOffsetY": -4 }
+          },
+    "com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle": {
+              "zoomIn": { "up": "zoomIn" , "pressedOffsetY": -4 }
+          },
+    "com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle": {
+              "zoomOut": { "up": "zoomOut" , "pressedOffsetY": -4 }
+          },
+    "com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle": {
+        "default": { "font": font}
+     }
+}

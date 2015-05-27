@@ -11,6 +11,8 @@ import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.eraticate.game.Eraticate;
 import com.eraticate.game.Map;
+import com.eraticate.game.Sidemenu;
+import com.sun.media.sound.EmergencySoundbank;
 
 /**
  * Created by Ferenc on 5/21/2015.
@@ -25,6 +27,7 @@ public class GameScreen extends RatScreen implements InputProcessor
     float aspectRatio;
 
     private Map map;
+    private Sidemenu sidemenu;
     private int numberOfFieldsInLine = 6; //The size of what we see
 
     public GameScreen(Eraticate game)
@@ -66,6 +69,7 @@ public class GameScreen extends RatScreen implements InputProcessor
         batch.begin();
         batch.setProjectionMatrix(camera.combined);
         map.Draw(batch, new OrthographicCamera());
+        sidemenu.Draw(batch, new OrthographicCamera());
         batch.end();
     }
     @Override

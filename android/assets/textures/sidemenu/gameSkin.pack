@@ -1,0 +1,75 @@
+
+gameSkin.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+bomb
+  rotate: false
+  xy: 1, 103
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+spikes
+  rotate: false
+  xy: 131, 103
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+exit
+  rotate: false
+  xy: 1, 1
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+return
+  rotate: false
+  xy: 261, 131
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+zoomIn
+  rotate: false
+  xy: 103, 1
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+zoomOut
+  rotate: false
+  xy: 363, 131
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+audioOff
+  rotate: false
+  xy: 465, 133
+  size: 98, 98
+  orig: 98, 98
+  offset: 0, 0
+  index: -1
+audioOn
+  rotate: false
+  xy: 565, 133
+  size: 98, 98
+  orig: 98, 98
+  offset: 0, 0
+  index: -1
+musicOff
+  rotate: false
+  xy: 665, 133
+  size: 98, 98
+  orig: 98, 98
+  offset: 0, 0
+  index: -1
+musicOn
+  rotate: false
+  xy: 765, 133
+  size: 98, 98
+  orig: 98, 98
+  offset: 0, 0
+  index: -1
